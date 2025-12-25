@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A Christmas Gift For You 🎄</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Georgia", serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+    }
+
+    /* Landing Screen */
+    #landing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #openGift {
+      padding: 22px 45px;
+      font-size: 1.4rem;
+      border: none;
+      border-radius: 40px;
+      background: #ffd700;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    #openGift:hover {
+      transform: scale(1.1);
+    }
+
+    /* Main Gift */
+    #gift {
+      display: none;
+      max-width: 720px;
+      margin: auto;
+      padding: 30px 20px 60px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      font-weight: normal;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .message {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 22px;
+      margin: 22px 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Music Button */
+    #musicBtn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      border: none;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      font-size: 1.6rem;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    footer {
+      margin-top: 35px;
+      font-style: italic;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Landing -->
+  <div id="landing">
+    <button id="openGift">🎁 Click Here</button>
+  </div>
+
+  <!-- Gift Content -->
+  <div id="gift">
+
+    <!-- Music Button -->
+    <button id="musicBtn">🎵</button>
+
+    <!-- Background Music -->
+    <!-- Replace the src with a direct MP3 link OR upload song.mp3 and use: song.mp3 -->
+    <audio id="song" loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <h1>Merry Christmas 🎄</h1>
+    <h2>A Message From Me to You</h2>
+
+    <div class="message">
+      Even though life has taken you far from Eritrea to Canada,  
+      I hope this small gift reminds you that distance never weakens connection.
+    </div>
+
+    <div class="message">
+      You carry strength, warmth, and grace wherever you go —  
+      the kind that quietly brightens the lives around you.
+    </div>
+
+    <div class="message">
+      Christmas is about love, hope, and new beginnings,  
+      and you represent all of that so beautifully.
+    </div>
+
+    <div class="message">
+      I’m thankful for every conversation, every shared moment,  
+      and the way you’ve become someone I genuinely appreciate.
+    </div>
+
+    <div class="message">
+      May this season wrap you in peace, joy, and reassurance  
+      that you are thought of more than you know. ❤️
+    </div>
+
+    <footer>
+      — With warmth, always
+    </footer>
+
+  </div>
+
+  <script>
+    const openGift = document.getElementById("openGift");
+    const landing = document.getElementById("landing");
+    const gift = document.getElementById("gift");
+
+    const musicBtn = document.getElementById("musicBtn");
+    const song = document.getElementById("song");
+
+    let isPlaying = false;
+
+    openGift.addEventListener("click", () => {
+      landing.style.display = "none";
+      gift.style.display = "block";
+    });
+
+    musicBtn.addEventListener("click", () => {
+      if (!isPlaying) {
+        song.play();
+        musicBtn.textContent = "⏸️";
+        isPlaying = true;
+      } else {
+        song.pause();
+        musicBtn.textContent = "🎵";
+        isPlaying = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
